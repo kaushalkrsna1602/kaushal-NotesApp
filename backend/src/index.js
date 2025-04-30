@@ -12,9 +12,15 @@ const { connectDB } = require('./lib/db.js');
 dotenv.config();
 const app = express();
 
+const allowedOrigins = [
+  process.env.CLIENT_URL,               
+  'https://kaushal-notes-app.vercel.app/',
+      
+];
+
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
+app.use(cors({origin : allowedOrigins, credentials: true }));
 
 app.use("/auth" , authRoutes)
 app.use("/note" , noteRoutes)
