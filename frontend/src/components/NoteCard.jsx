@@ -40,7 +40,7 @@ const NoteCard = ({ note, onEdit, onDelete }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.2 }}
-        onClick={(e) => e.stopPropagation()} // Prevent card expansion when clicking buttons
+        onClick={(e) => e.stopPropagation()} 
       >
         <motion.button
           onClick={() => onEdit(note)}
